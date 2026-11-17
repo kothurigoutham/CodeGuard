@@ -14,23 +14,23 @@ export const SeverityBadge: React.FC<SeverityBadgeProps> = ({
 }) => {
   const styles: Record<Severity, { container: string; dot: string; label: string }> = {
     CRITICAL: {
-      container: 'bg-rose-500/10 text-rose-300 border-rose-500/20',
-      dot: 'bg-rose-400',
+      container: 'bg-rose-50 text-rose-700 border-rose-200',
+      dot: 'bg-rose-500',
       label: 'Critical'
     },
     HIGH: {
-      container: 'bg-amber-500/10 text-amber-300 border-amber-500/20',
-      dot: 'bg-amber-400',
+      container: 'bg-amber-50 text-amber-800 border-amber-200',
+      dot: 'bg-amber-500',
       label: 'High'
     },
     MEDIUM: {
-      container: 'bg-yellow-500/10 text-yellow-300 border-yellow-500/20',
-      dot: 'bg-yellow-400',
+      container: 'bg-yellow-50 text-yellow-800 border-yellow-200',
+      dot: 'bg-yellow-500',
       label: 'Medium'
     },
     LOW: {
-      container: 'bg-sky-500/10 text-sky-300 border-sky-500/20',
-      dot: 'bg-sky-400',
+      container: 'bg-sky-50 text-sky-800 border-sky-200',
+      dot: 'bg-sky-500',
       label: 'Low'
     }
   };

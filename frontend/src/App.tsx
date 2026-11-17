@@ -7,7 +7,7 @@ import { ScanUploadModal } from './components/ScanUploadModal';
 import { ScanDiffModal } from './components/ScanDiffModal';
 import { Project, ScanSummary, ScanDetail, ScanDiffResult } from './types';
 import { fetchProjects, fetchScans, fetchScanDetail } from './api';
-import { Search, Loader2, ShieldCheck, Plus } from 'lucide-react';
+import { Search, Loader2, Plus } from 'lucide-react';
 
 export const App: React.FC = () => {
   const [currentTab, setCurrentTab] = useState<'dashboard' | 'scans' | 'history'>('dashboard');
@@ -66,7 +66,7 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#090D16] text-slate-100 flex flex-col font-sans">
+    <div className="min-h-screen bg-[#F8FAFC] text-slate-900 flex flex-col font-sans">
       <Header
         currentTab={currentTab}
         onTabChange={(tab) => {
@@ -92,9 +92,9 @@ export const App: React.FC = () => {
         {currentTab === 'scans' && (
           <>
             {isLoadingDetail ? (
-              <div className="py-24 text-center text-slate-400">
-                <Loader2 className="w-6 h-6 animate-spin text-blue-500 mx-auto mb-2" />
-                <p className="text-xs text-slate-400 font-medium">Loading audit findings and source manifest...</p>
+              <div className="py-24 text-center text-slate-500">
+                <Loader2 className="w-6 h-6 animate-spin text-blue-600 mx-auto mb-2" />
+                <p className="text-xs text-slate-600 font-medium">Loading audit findings and source manifest...</p>
               </div>
             ) : selectedScanDetail ? (
               <ScanDetailView
@@ -108,16 +108,16 @@ export const App: React.FC = () => {
               />
             ) : (
               <div className="py-20 text-center max-w-md mx-auto">
-                <div className="w-10 h-10 rounded-lg bg-slate-900 border border-slate-800 text-slate-400 flex items-center justify-center mx-auto mb-3">
+                <div className="w-10 h-10 rounded-lg bg-white border border-slate-200 text-slate-500 flex items-center justify-center mx-auto mb-3 shadow-sm">
                   <Search className="w-5 h-5" />
                 </div>
-                <h3 className="text-sm font-semibold text-slate-100">Select an Audit to Inspect Findings</h3>
-                <p className="text-xs text-slate-400 mt-1 mb-5">
+                <h3 className="text-sm font-semibold text-slate-900">Select an Audit to Inspect Findings</h3>
+                <p className="text-xs text-slate-500 mt-1 mb-5">
                   Pick an existing scan from the dashboard or history, or upload new source code.
                 </p>
                 <button
                   onClick={() => setIsUploadOpen(true)}
-                  className="inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-md bg-blue-600 hover:bg-blue-500 text-white text-xs font-medium shadow-sm transition-colors border border-blue-500/30"
+                  className="inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-md bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium shadow-sm transition-colors"
                 >
                   <Plus className="w-3.5 h-3.5" />
                   <span>Start New Scan</span>
@@ -155,10 +155,10 @@ export const App: React.FC = () => {
       />
 
       {/* Footer */}
-      <footer className="border-t border-slate-800/80 bg-[#0B0F19] py-4 text-xs text-slate-500">
+      <footer className="border-t border-slate-200 bg-white py-4 text-xs text-slate-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-2">
           <div className="flex items-center space-x-2">
-            <span className="font-semibold text-slate-400">CodeGuard</span>
+            <span className="font-semibold text-slate-700">CodeGuard</span>
             <span>&bull;</span>
             <span>Static Application Security Testing &amp; Quality</span>
           </div>

@@ -4,16 +4,16 @@
 
 @layer base {
   html {
-    color-scheme: dark;
+    color-scheme: light;
   }
   body {
-    @apply bg-[#090D16] text-slate-100 antialiased font-sans selection:bg-blue-600/30 selection:text-white;
+    @apply bg-[#F8FAFC] text-slate-900 antialiased font-sans selection:bg-blue-600/15 selection:text-blue-900;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 }
 
-/* Professional sleek scrollbars */
+/* Light theme sleek scrollbars */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -22,15 +22,15 @@
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
+  background: #cbd5e1;
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #334155;
+  background: #94a3b8;
 }
 
 /* Subtle focus indicators */
 *:focus-visible {
-  outline: 2px solid rgba(59, 130, 246, 0.5);
+  outline: 2px solid rgba(37, 99, 235, 0.5);
   outline-offset: 1px;
 }

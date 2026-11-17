@@ -55,27 +55,27 @@ export const ScanDetailView: React.FC<ScanDetailViewProps> = ({
   return (
     <div className="space-y-6">
       {/* Top Header & Breadcrumb */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-slate-800">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-slate-200">
         <div>
           <button
             onClick={onBack}
-            className="inline-flex items-center space-x-1.5 text-xs text-slate-400 hover:text-slate-200 transition-colors mb-2 focus-visible:outline-none"
+            className="inline-flex items-center space-x-1.5 text-xs text-slate-500 hover:text-slate-800 transition-colors mb-2 focus-visible:outline-none"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>Back to Explorer</span>
           </button>
           
           <div className="flex items-center space-x-3">
-            <h1 className="text-xl font-semibold tracking-tight text-slate-100">
+            <h1 className="text-xl font-semibold tracking-tight text-slate-900">
               Scan #{scan.scan_number} Results
             </h1>
-            <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">
+            <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-700 border border-slate-200">
               {scan.scan_type}
             </span>
           </div>
 
-          <div className="text-xs text-slate-400 mt-1 flex items-center space-x-2">
-            <span>Workspace: <strong className="text-slate-200 font-medium">{projectName}</strong></span>
+          <div className="text-xs text-slate-600 mt-1 flex items-center space-x-2">
+            <span>Workspace: <strong className="text-slate-900 font-medium">{projectName}</strong></span>
             <span>&bull;</span>
             <span>{scan.total_files} files inspected</span>
             <span>&bull;</span>
@@ -88,18 +88,18 @@ export const ScanDetailView: React.FC<ScanDetailViewProps> = ({
           <a
             href={getReportPdfUrl(scan.id)}
             download
-            className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-md bg-slate-900 hover:bg-slate-800 text-slate-200 text-xs font-medium border border-slate-750 transition-colors shadow-sm"
+            className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-md bg-white hover:bg-slate-50 text-slate-700 text-xs font-medium border border-slate-300 transition-colors shadow-sm"
           >
-            <Download className="w-3.5 h-3.5 text-rose-400" />
+            <Download className="w-3.5 h-3.5 text-rose-600" />
             <span>Download PDF</span>
           </a>
 
           <a
             href={getReportJsonUrl(scan.id)}
             download
-            className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-md bg-slate-900 hover:bg-slate-800 text-slate-200 text-xs font-medium border border-slate-750 transition-colors shadow-sm"
+            className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-md bg-white hover:bg-slate-50 text-slate-700 text-xs font-medium border border-slate-300 transition-colors shadow-sm"
           >
-            <FileText className="w-3.5 h-3.5 text-blue-400" />
+            <FileText className="w-3.5 h-3.5 text-blue-600" />
             <span>Export JSON</span>
           </a>
         </div>
@@ -111,17 +111,17 @@ export const ScanDetailView: React.FC<ScanDetailViewProps> = ({
         <button
           type="button"
           onClick={() => setSelectedSeverity(selectedSeverity === 'CRITICAL' ? 'ALL' : 'CRITICAL')}
-          className={`p-3.5 rounded-lg border text-left transition-colors ${
+          className={`p-3.5 rounded-lg border text-left transition-colors shadow-sm ${
             selectedSeverity === 'CRITICAL'
-              ? 'bg-rose-950/20 border-rose-500/50 ring-1 ring-rose-500/30'
-              : 'bg-[#0F172A]/70 border-slate-800 hover:border-slate-700'
+              ? 'bg-rose-50 border-rose-300 ring-1 ring-rose-400'
+              : 'bg-white border-slate-200 hover:border-slate-300'
           }`}
         >
-          <div className="flex items-center justify-between text-xs font-medium text-slate-400">
-            <span className="text-rose-400">Critical</span>
-            <ShieldAlert className="w-4 h-4 text-rose-400" />
+          <div className="flex items-center justify-between text-xs font-medium text-slate-600">
+            <span className="text-rose-700 font-semibold">Critical</span>
+            <ShieldAlert className="w-4 h-4 text-rose-600" />
           </div>
-          <div className="text-2xl font-semibold text-rose-300 mt-1">
+          <div className="text-2xl font-semibold text-rose-700 mt-1">
             {scan.critical_count}
           </div>
           <div className="text-[11px] text-slate-500 mt-0.5">
@@ -133,17 +133,17 @@ export const ScanDetailView: React.FC<ScanDetailViewProps> = ({
         <button
           type="button"
           onClick={() => setSelectedSeverity(selectedSeverity === 'HIGH' ? 'ALL' : 'HIGH')}
-          className={`p-3.5 rounded-lg border text-left transition-colors ${
+          className={`p-3.5 rounded-lg border text-left transition-colors shadow-sm ${
             selectedSeverity === 'HIGH'
-              ? 'bg-amber-950/20 border-amber-500/50 ring-1 ring-amber-500/30'
-              : 'bg-[#0F172A]/70 border-slate-800 hover:border-slate-700'
+              ? 'bg-amber-50 border-amber-300 ring-1 ring-amber-400'
+              : 'bg-white border-slate-200 hover:border-slate-300'
           }`}
         >
-          <div className="flex items-center justify-between text-xs font-medium text-slate-400">
-            <span className="text-amber-400">High</span>
-            <AlertTriangle className="w-4 h-4 text-amber-400" />
+          <div className="flex items-center justify-between text-xs font-medium text-slate-600">
+            <span className="text-amber-800 font-semibold">High</span>
+            <AlertTriangle className="w-4 h-4 text-amber-600" />
           </div>
-          <div className="text-2xl font-semibold text-amber-300 mt-1">
+          <div className="text-2xl font-semibold text-amber-800 mt-1">
             {scan.high_count}
           </div>
           <div className="text-[11px] text-slate-500 mt-0.5">
@@ -155,17 +155,17 @@ export const ScanDetailView: React.FC<ScanDetailViewProps> = ({
         <button
           type="button"
           onClick={() => setSelectedSeverity(selectedSeverity === 'MEDIUM' ? 'ALL' : 'MEDIUM')}
-          className={`p-3.5 rounded-lg border text-left transition-colors ${
+          className={`p-3.5 rounded-lg border text-left transition-colors shadow-sm ${
             selectedSeverity === 'MEDIUM'
-              ? 'bg-yellow-950/20 border-yellow-500/50 ring-1 ring-yellow-500/30'
-              : 'bg-[#0F172A]/70 border-slate-800 hover:border-slate-700'
+              ? 'bg-yellow-50 border-yellow-300 ring-1 ring-yellow-400'
+              : 'bg-white border-slate-200 hover:border-slate-300'
           }`}
         >
-          <div className="flex items-center justify-between text-xs font-medium text-slate-400">
-            <span className="text-yellow-400">Medium</span>
-            <AlertTriangle className="w-4 h-4 text-yellow-400" />
+          <div className="flex items-center justify-between text-xs font-medium text-slate-600">
+            <span className="text-yellow-800 font-semibold">Medium</span>
+            <AlertTriangle className="w-4 h-4 text-yellow-600" />
           </div>
-          <div className="text-2xl font-semibold text-yellow-300 mt-1">
+          <div className="text-2xl font-semibold text-yellow-800 mt-1">
             {scan.medium_count}
           </div>
           <div className="text-[11px] text-slate-500 mt-0.5">
@@ -177,17 +177,17 @@ export const ScanDetailView: React.FC<ScanDetailViewProps> = ({
         <button
           type="button"
           onClick={() => setSelectedSeverity(selectedSeverity === 'LOW' ? 'ALL' : 'LOW')}
-          className={`p-3.5 rounded-lg border text-left transition-colors ${
+          className={`p-3.5 rounded-lg border text-left transition-colors shadow-sm ${
             selectedSeverity === 'LOW'
-              ? 'bg-sky-950/20 border-sky-500/50 ring-1 ring-sky-500/30'
-              : 'bg-[#0F172A]/70 border-slate-800 hover:border-slate-700'
+              ? 'bg-sky-50 border-sky-300 ring-1 ring-sky-400'
+              : 'bg-white border-slate-200 hover:border-slate-300'
           }`}
         >
-          <div className="flex items-center justify-between text-xs font-medium text-slate-400">
-            <span className="text-sky-400">Low / Quality</span>
-            <CheckCircle2 className="w-4 h-4 text-sky-400" />
+          <div className="flex items-center justify-between text-xs font-medium text-slate-600">
+            <span className="text-sky-800 font-semibold">Low / Quality</span>
+            <CheckCircle2 className="w-4 h-4 text-sky-600" />
           </div>
-          <div className="text-2xl font-semibold text-sky-300 mt-1">
+          <div className="text-2xl font-semibold text-sky-800 mt-1">
             {scan.low_count}
           </div>
           <div className="text-[11px] text-slate-500 mt-0.5">
@@ -198,13 +198,13 @@ export const ScanDetailView: React.FC<ScanDetailViewProps> = ({
 
       {/* View Tabs & Search Bar */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-2">
-        <div className="flex items-center space-x-1 p-0.5 bg-slate-900/60 border border-slate-800 rounded-lg">
+        <div className="flex items-center space-x-1 p-0.5 bg-slate-100 border border-slate-200/80 rounded-lg">
           <button
             onClick={() => setActiveTab('findings')}
             className={`px-3 py-1.5 rounded-md text-xs font-medium transition-colors ${
               activeTab === 'findings'
-                ? 'bg-slate-800 text-slate-100 shadow-sm'
-                : 'text-slate-400 hover:text-slate-200'
+                ? 'bg-white text-slate-900 shadow-sm border border-slate-200/60'
+                : 'text-slate-600 hover:text-slate-900'
             }`}
           >
             Findings Matrix ({scan.total_findings})
@@ -213,8 +213,8 @@ export const ScanDetailView: React.FC<ScanDetailViewProps> = ({
             onClick={() => setActiveTab('files')}
             className={`px-3 py-1.5 rounded-md text-xs font-medium transition-colors ${
               activeTab === 'files'
-                ? 'bg-slate-800 text-slate-100 shadow-sm'
-                : 'text-slate-400 hover:text-slate-200'
+                ? 'bg-white text-slate-900 shadow-sm border border-slate-200/60'
+                : 'text-slate-600 hover:text-slate-900'
             }`}
           >
             Scanned Files ({scan.total_files})
@@ -224,19 +224,19 @@ export const ScanDetailView: React.FC<ScanDetailViewProps> = ({
         {activeTab === 'findings' && (
           <div className="flex items-center space-x-2">
             <div className="relative">
-              <Search className="w-3.5 h-3.5 text-slate-500 absolute left-2.5 top-2.5" />
+              <Search className="w-3.5 h-3.5 text-slate-400 absolute left-2.5 top-2.5" />
               <input
                 type="text"
                 placeholder="Filter by rule, description, or file..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="bg-slate-900 border border-slate-800 rounded-md pl-8 pr-3 py-1.5 text-xs text-slate-200 placeholder-slate-500 w-64 focus:outline-none focus:border-blue-500"
+                className="bg-white border border-slate-300 rounded-md pl-8 pr-3 py-1.5 text-xs text-slate-900 placeholder-slate-400 w-64 focus:outline-none focus:border-blue-600 shadow-sm"
               />
             </div>
             {selectedSeverity !== 'ALL' && (
               <button
                 onClick={() => setSelectedSeverity('ALL')}
-                className="text-xs text-blue-400 hover:text-blue-300 font-medium px-2 py-1"
+                className="text-xs text-blue-600 hover:text-blue-700 font-medium px-2 py-1"
               >
                 Clear filter
               </button>
@@ -251,9 +251,9 @@ export const ScanDetailView: React.FC<ScanDetailViewProps> = ({
           {/* Findings List (7 or 12 Cols) */}
           <div className={`space-y-2.5 ${selectedFinding ? 'lg:col-span-7' : 'lg:col-span-12'}`}>
             {filteredFindings.length === 0 ? (
-              <div className="bg-[#0F172A]/50 border border-slate-800 rounded-lg p-8 text-center">
-                <CheckCircle className="w-8 h-8 text-emerald-400 mx-auto mb-2" />
-                <h3 className="text-xs font-medium text-slate-200">No findings match this filter</h3>
+              <div className="bg-white border border-slate-200 rounded-lg p-8 text-center shadow-sm">
+                <CheckCircle className="w-8 h-8 text-emerald-500 mx-auto mb-2" />
+                <h3 className="text-xs font-medium text-slate-800">No findings match this filter</h3>
                 <p className="text-[11px] text-slate-500 mt-1">
                   Try adjusting the severity filter or search keywords.
                 </p>
@@ -265,23 +265,23 @@ export const ScanDetailView: React.FC<ScanDetailViewProps> = ({
                   <div
                     key={finding.id}
                     onClick={() => setSelectedFinding(finding)}
-                    className={`p-3.5 rounded-lg border transition-colors cursor-pointer text-left ${
+                    className={`p-3.5 rounded-lg border transition-colors cursor-pointer text-left shadow-sm ${
                       isSelected
-                        ? 'bg-[#151F32] border-blue-500/60 ring-1 ring-blue-500/30'
-                        : 'bg-[#0F172A]/60 border-slate-800 hover:border-slate-750 hover:bg-slate-900/60'
+                        ? 'bg-blue-50/40 border-blue-400 ring-1 ring-blue-300'
+                        : 'bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50/50'
                     }`}
                   >
                     <div className="flex items-start justify-between gap-3">
                       <div className="flex flex-wrap items-center gap-2">
                         <SeverityBadge severity={finding.severity} size="sm" />
-                        <span className="font-mono text-xs font-semibold text-slate-200">
+                        <span className="font-mono text-xs font-semibold text-slate-900">
                           {finding.rule_id}
                         </span>
-                        <span className="text-[10px] text-slate-400 px-1.5 py-0.5 rounded bg-slate-800 font-mono">
+                        <span className="text-[10px] text-slate-600 px-1.5 py-0.5 rounded bg-slate-100 border border-slate-200 font-mono">
                           {finding.tool_source}
                         </span>
                         {finding.cwe_id && (
-                          <span className="text-[10px] text-slate-400 px-1.5 py-0.5 rounded bg-slate-800 font-mono">
+                          <span className="text-[10px] text-slate-600 px-1.5 py-0.5 rounded bg-slate-100 border border-slate-200 font-mono">
                             {finding.cwe_id}
                           </span>
                         )}
@@ -290,23 +290,23 @@ export const ScanDetailView: React.FC<ScanDetailViewProps> = ({
                       <span
                         className={`text-[10px] font-medium px-2 py-0.5 rounded border shrink-0 ${
                           finding.status === 'RESOLVED'
-                            ? 'bg-emerald-500/10 text-emerald-300 border-emerald-500/25'
+                            ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
                             : finding.status === 'FALSE_POSITIVE'
-                            ? 'bg-slate-800 text-slate-400 border-slate-700'
-                            : 'bg-slate-900 text-slate-400 border-slate-800'
+                            ? 'bg-slate-100 text-slate-600 border-slate-200'
+                            : 'bg-slate-50 text-slate-600 border-slate-200'
                         }`}
                       >
                         {finding.status}
                       </span>
                     </div>
 
-                    <div className="mt-2 text-xs text-slate-200 font-medium leading-relaxed">
+                    <div className="mt-2 text-xs text-slate-800 font-medium leading-relaxed">
                       {finding.description}
                     </div>
 
-                    <div className="mt-2 flex items-center justify-between text-[11px] text-slate-400 font-mono pt-1 border-t border-slate-800/40">
+                    <div className="mt-2 flex items-center justify-between text-[11px] text-slate-500 font-mono pt-1 border-t border-slate-100">
                       <span>{finding.file_path}:{finding.line_number}</span>
-                      <span className="text-blue-400 group-hover:text-blue-300 font-sans font-medium text-[11px]">
+                      <span className="text-blue-600 group-hover:text-blue-700 font-sans font-medium text-[11px]">
                         Inspect details &rarr;
                       </span>
                     </div>
@@ -318,22 +318,22 @@ export const ScanDetailView: React.FC<ScanDetailViewProps> = ({
 
           {/* Finding Inspector Panel (5 Cols) */}
           {selectedFinding && (
-            <div className="lg:col-span-5 bg-[#0F172A] border border-slate-800 rounded-lg p-4 space-y-4 sticky top-20 shadow-xl">
-              <div className="flex items-start justify-between pb-3 border-b border-slate-800">
+            <div className="lg:col-span-5 bg-white border border-slate-200 rounded-lg p-4 space-y-4 sticky top-20 shadow-md">
+              <div className="flex items-start justify-between pb-3 border-b border-slate-200">
                 <div className="min-w-0 pr-2">
                   <div className="flex items-center space-x-2">
                     <SeverityBadge severity={selectedFinding.severity} size="sm" />
-                    <span className="font-mono text-xs font-semibold text-slate-200">
+                    <span className="font-mono text-xs font-semibold text-slate-900">
                       {selectedFinding.rule_id}
                     </span>
                   </div>
-                  <h3 className="text-xs font-semibold text-slate-100 mt-1.5 truncate">
+                  <h3 className="text-xs font-semibold text-slate-900 mt-1.5 truncate">
                     {selectedFinding.rule_name}
                   </h3>
                 </div>
                 <button
                   onClick={() => setSelectedFinding(null)}
-                  className="text-slate-400 hover:text-white p-1 rounded hover:bg-slate-800 transition-colors"
+                  className="text-slate-400 hover:text-slate-700 p-1 rounded hover:bg-slate-100 transition-colors"
                   title="Close inspector"
                 >
                   <X className="w-4 h-4" />
@@ -342,17 +342,17 @@ export const ScanDetailView: React.FC<ScanDetailViewProps> = ({
 
               {/* Diagnostic Description */}
               <div>
-                <label className="text-[11px] font-semibold uppercase tracking-wider text-slate-400">
+                <label className="text-[11px] font-semibold uppercase tracking-wider text-slate-600">
                   Diagnostic Message
                 </label>
-                <p className="text-xs text-slate-200 mt-1 leading-relaxed bg-[#090D16] p-3 rounded-md border border-slate-800">
+                <p className="text-xs text-slate-800 mt-1 leading-relaxed bg-slate-50 p-3 rounded-md border border-slate-200">
                   {selectedFinding.description}
                 </p>
               </div>
 
               {/* Code Snippet Viewer */}
               <div>
-                <label className="text-[11px] font-semibold uppercase tracking-wider text-slate-400 mb-1.5 block">
+                <label className="text-[11px] font-semibold uppercase tracking-wider text-slate-600 mb-1.5 block">
                   Context Code
                 </label>
                 <CodeSnippetViewer
@@ -364,23 +364,23 @@ export const ScanDetailView: React.FC<ScanDetailViewProps> = ({
 
               {/* AI Remediation Guidance */}
               <div>
-                <label className="text-[11px] font-semibold uppercase tracking-wider text-emerald-400 mb-1.5 block">
+                <label className="text-[11px] font-semibold uppercase tracking-wider text-emerald-800 mb-1.5 block">
                   Remediation &amp; Patch Guidance
                 </label>
-                <div className="bg-emerald-950/20 border border-emerald-800/30 rounded-md p-3 text-xs text-emerald-200 whitespace-pre-wrap leading-relaxed">
+                <div className="bg-emerald-50/70 border border-emerald-200 rounded-md p-3 text-xs text-emerald-900 whitespace-pre-wrap leading-relaxed">
                   {selectedFinding.ai_explanation || 'No remediation guidance available.'}
                 </div>
               </div>
 
               {/* Status Actions */}
-              <div className="pt-3 border-t border-slate-800 flex items-center justify-between">
-                <span className="text-[11px] text-slate-400 font-medium">Status:</span>
+              <div className="pt-3 border-t border-slate-200 flex items-center justify-between">
+                <span className="text-[11px] text-slate-600 font-medium">Status:</span>
                 <div className="flex items-center space-x-1.5">
                   {selectedFinding.status !== 'RESOLVED' && (
                     <button
                       onClick={() => handleStatusChange(selectedFinding.id, 'RESOLVED')}
                       disabled={isUpdatingStatus}
-                      className="px-2.5 py-1 rounded-md bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-medium transition-colors disabled:opacity-50"
+                      className="px-2.5 py-1 rounded-md bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-medium transition-colors disabled:opacity-50 shadow-sm"
                     >
                       Resolve
                     </button>
@@ -389,7 +389,7 @@ export const ScanDetailView: React.FC<ScanDetailViewProps> = ({
                     <button
                       onClick={() => handleStatusChange(selectedFinding.id, 'FALSE_POSITIVE')}
                       disabled={isUpdatingStatus}
-                      className="px-2.5 py-1 rounded-md bg-slate-800 hover:bg-slate-750 text-slate-300 text-xs font-medium border border-slate-700 transition-colors disabled:opacity-50"
+                      className="px-2.5 py-1 rounded-md bg-white hover:bg-slate-50 text-slate-700 text-xs font-medium border border-slate-300 transition-colors disabled:opacity-50 shadow-sm"
                     >
                       False Positive
                     </button>
@@ -398,7 +398,7 @@ export const ScanDetailView: React.FC<ScanDetailViewProps> = ({
                     <button
                       onClick={() => handleStatusChange(selectedFinding.id, 'OPEN')}
                       disabled={isUpdatingStatus}
-                      className="px-2.5 py-1 rounded-md bg-rose-600 hover:bg-rose-500 text-white text-xs font-medium transition-colors disabled:opacity-50"
+                      className="px-2.5 py-1 rounded-md bg-rose-600 hover:bg-rose-700 text-white text-xs font-medium transition-colors disabled:opacity-50 shadow-sm"
                     >
                       Re-open
                     </button>
@@ -410,9 +410,9 @@ export const ScanDetailView: React.FC<ScanDetailViewProps> = ({
         </div>
       ) : (
         /* Scanned Files Manifest View */
-        <div className="bg-[#0F172A]/70 border border-slate-800 rounded-lg overflow-hidden">
+        <div className="bg-white border border-slate-200 rounded-lg overflow-hidden shadow-sm">
           <table className="w-full text-left text-xs">
-            <thead className="bg-[#0F172A] border-b border-slate-800 text-slate-400 font-medium uppercase tracking-wider text-[11px]">
+            <thead className="bg-slate-50 border-b border-slate-200 text-slate-600 font-medium uppercase tracking-wider text-[11px]">
               <tr>
                 <th className="px-4 py-3">File Path</th>
                 <th className="px-4 py-3">Lines of Code</th>
@@ -420,14 +420,14 @@ export const ScanDetailView: React.FC<ScanDetailViewProps> = ({
                 <th className="px-4 py-3 text-right">Status</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-800/60">
+            <tbody className="divide-y divide-slate-100">
               {scan.files.map((file) => (
-                <tr key={file.id} className="hover:bg-slate-850/40 transition-colors">
-                  <td className="px-4 py-2.5 font-mono text-slate-200">{file.relative_path}</td>
-                  <td className="px-4 py-2.5 text-slate-400">{file.line_count.toLocaleString()} LOC</td>
-                  <td className="px-4 py-2.5 text-slate-400">{(file.file_size_bytes / 1024).toFixed(1)} KB</td>
+                <tr key={file.id} className="hover:bg-slate-50 transition-colors">
+                  <td className="px-4 py-2.5 font-mono text-slate-800">{file.relative_path}</td>
+                  <td className="px-4 py-2.5 text-slate-600">{file.line_count.toLocaleString()} LOC</td>
+                  <td className="px-4 py-2.5 text-slate-600">{(file.file_size_bytes / 1024).toFixed(1)} KB</td>
                   <td className="px-4 py-2.5 text-right">
-                    <span className="px-2 py-0.5 rounded text-[10px] font-medium bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">
+                    <span className="px-2 py-0.5 rounded text-[10px] font-medium bg-emerald-50 text-emerald-700 border border-emerald-200">
                       {file.status}
                     </span>
                   </td>
